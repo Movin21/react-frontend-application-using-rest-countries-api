@@ -33,11 +33,14 @@ export const FavoritesProvider = ({ children }) => {
         setLoading(true);
         setError(null);
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:5000/api/favorites", {
-          headers: {
-            "x-auth-token": token,
-          },
-        });
+        const response = await fetch(
+          "https://react-frontend-application-using-rest.onrender.com/api/favorites",
+          {
+            headers: {
+              "x-auth-token": token,
+            },
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();
@@ -65,18 +68,21 @@ export const FavoritesProvider = ({ children }) => {
     try {
       setError(null);
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/favorites", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-auth-token": token,
-        },
-        body: JSON.stringify({
-          countryCode: country.cca3,
-          countryName: country.name.common,
-          flagUrl: country.flags.svg || country.flags.png,
-        }),
-      });
+      const response = await fetch(
+        "https://react-frontend-application-using-rest.onrender.com/api/favorites",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": token,
+          },
+          body: JSON.stringify({
+            countryCode: country.cca3,
+            countryName: country.name.common,
+            flagUrl: country.flags.svg || country.flags.png,
+          }),
+        }
+      );
 
       const data = await response.json();
 
@@ -103,7 +109,7 @@ export const FavoritesProvider = ({ children }) => {
       setError(null);
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:5000/api/favorites/${countryCode}`,
+        `https://react-frontend-application-using-rest.onrender.com/api/favorites/${countryCode}`,
         {
           method: "DELETE",
           headers: {

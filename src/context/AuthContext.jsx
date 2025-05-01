@@ -27,11 +27,14 @@ export const AuthProvider = ({ children }) => {
         const token = localStorage.getItem("token");
         if (token) {
           // Validate token with the backend
-          const response = await fetch("http://localhost:5000/api/user", {
-            headers: {
-              "x-auth-token": token,
-            },
-          });
+          const response = await fetch(
+            "https://react-frontend-application-using-rest.onrender.com/api/user",
+            {
+              headers: {
+                "x-auth-token": token,
+              },
+            }
+          );
 
           if (response.ok) {
             const userData = await response.json();
@@ -56,13 +59,16 @@ export const AuthProvider = ({ children }) => {
   const login = async (username, password) => {
     try {
       setError(null);
-      const response = await fetch("http://localhost:5000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        "https://react-frontend-application-using-rest.onrender.com/api/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        }
+      );
 
       const data = await response.json();
 
@@ -86,13 +92,16 @@ export const AuthProvider = ({ children }) => {
   const signup = async (username, password) => {
     try {
       setError(null);
-      const response = await fetch("http://localhost:5000/api/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        "https://react-frontend-application-using-rest.onrender.com/api/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        }
+      );
 
       const data = await response.json();
 
