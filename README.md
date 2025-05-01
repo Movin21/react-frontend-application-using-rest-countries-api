@@ -1,6 +1,6 @@
 # Countries Explorer
 
-![Countries Explorer](https://graceful-crostata-3ebae5.netlify.app/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge&logo=netlify)](https://graceful-crostata-3ebae5.netlify.app/)
 
 A modern React application that allows users to explore countries around the world using data from the REST Countries API. This application features user authentication, country filtering, search functionality, and the ability to save favorite countries.
 
